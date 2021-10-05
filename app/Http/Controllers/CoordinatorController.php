@@ -71,9 +71,9 @@ class CoordinatorController extends Controller
             'lawyer_phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
             'country' => 'required',
             'region' => 'required',
-            'headquarters_address' => 'required',
             'TIK' => 'required',
             'YIK' => 'required',
+            'headquarters_address' => 'required',
         ]);
 
         $user = new user([
@@ -92,11 +92,11 @@ class CoordinatorController extends Controller
             'chief_address' => $request->chief_address,
             'lawyer' => $request->lawyer,
             'lawyer_phone' => $request->lawyer_phone,
-            'country' => $request->country,
-            'region' => $regionNames[(integer)$request->region - 1],
             'headquarters_address' => $request->headquarters_address,
             'TIK' => $request->TIK,
             'YIK' => $request->YIK,
+            'country' => $request->country,
+            'region' => $regionNames[(integer)$request->region - 1],
         ]);
 
         $candidate->save();
@@ -134,6 +134,18 @@ class CoordinatorController extends Controller
      */
     public function registerAgitator(Request $request): RedirectResponse
     {
+        $regionNames = [
+            'Баткенская область',
+            'Жалал-Абадская область',
+            'Иссык-Кульская область',
+            'Нарынская область',
+            'Ошская область',
+            'Таласская область',
+            'Чуйская область',
+            'город Бишкек',
+            'город Ош',
+        ];
+
         $request->validate([
             'name' => 'required|max:100|string',
             'surname' => 'required|max:100|string',
@@ -144,8 +156,12 @@ class CoordinatorController extends Controller
             'passport_date' => 'required|max:100',
             'residence_address' => 'required|max:100',
             'INN' => 'required|max:100|unique:extra_info',
-            'passport_face_photo' => 'required|image|mimes:jpeg,png,jpg|max:200',
-            'passport_residence_address' => 'required|image|mimes:jpeg,png,jpg|max:200',
+            'passport_face_photo' => 'required|image|mimes:jpeg,png,jpg|max:500',
+            'passport_residence_address' => 'required|image|mimes:jpeg,png,jpg|max:500',
+            'country' => 'required',
+            'region' => 'required',
+            'TIK' => 'required',
+            'YIK' => 'required',
         ]);
 
         $user = new user([
@@ -171,6 +187,10 @@ class CoordinatorController extends Controller
             'passport_face_photo' => $passportFacePhoto,
             'passport_residence_address' => $passportResidenceAddress,
             'INN' => $request->INN,
+            'TIK' => $request->TIK,
+            'YIK' => $request->YIK,
+            'country' => $request->country,
+            'region' => $regionNames[(integer)$request->region - 1],
         ]);
         $agitator->save();
 

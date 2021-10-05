@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="kaymakmedia.myjino.ru" remoteFilesAllowedToDisappearOnAutoupload="false">
+  <component name="PublishConfigData" serverName="n.kgz.red" remoteFilesAllowedToDisappearOnAutoupload="false">
     <serverData>
-      <paths name="kaymakmedia.myjino.ru">
+      <paths name="n.kgz.red">
         <serverdata>
           <mappings>
-            <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/resources/views" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>

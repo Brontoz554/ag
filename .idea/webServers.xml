@@ -2,8 +2,8 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="abdc7987-6dd3-46a6-9a1e-1c9526cce32c" name="kaymakmedia.myjino.ru" url="http://kaymakmedia.myjino.ru">
-        <fileTransfer accessType="FTPS" host="kaymakmedia.myjino.ru" port="21">
+      <webServer id="7da78fae-5916-4385-a9e1-f3aaba4fc7c6" name="n.kgz.red" url="http://n.kgz.red">
+        <fileTransfer accessType="FTPS" host="n.kgz.red" port="21">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>

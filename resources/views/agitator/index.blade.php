@@ -11,10 +11,8 @@
                     <th class="sorting">Agitator name</th>
                     <th class="sorting">Agitator phone</th>
                     <th class="sorting">Agitator password</th>
-                    <th class="sorting">Passport series</th>
-                    <th class="sorting">Passport number</th>
                     <th class="sorting">Referral link</th>
-                    <th class="sorting">INN</th>
+                    <th class="sorting">YIK</th>
                     <th class="sorting">Photos</th>
                 </tr>
                 </thead>
@@ -25,10 +23,8 @@
                             <td>{{ $agitator->surname }} {{ $agitator->name }} {{ $agitator->patronymic }}</td>
                             <td>{{ $agitator->phone }}</td>
                             <td>{{ $agitator->password }}</td>
-                            <td>{{ $agitator->info->passport_series }}</td>
-                            <td>{{ $agitator->info->passport_number }}</td>
                             <td>{{ $agitator->info->referral_link }}</td>
-                            <td>{{ $agitator->info->INN }}</td>
+                            <td>{{ $agitator->info->YIK }}</td>
                             <td>
                                 <button type="button" class="btn btn-default" data-toggle="modal"
                                         data-target="#modalAgitator{{$agitator->id}}">
@@ -75,10 +71,8 @@
                             <td>{{ $agitator->surname }} {{ $agitator->name }} {{ $agitator->patronymic }}</td>
                             <td>{{ $agitator->phone }}</td>
                             <td>{{ $agitator->password }}</td>
-                            <td>{{ $agitator->info->passport_series }}</td>
-                            <td>{{ $agitator->info->passport_number }}</td>
                             <td>{{ $agitator->info->referral_link }}</td>
-                            <td>{{ $agitator->info->INN }}</td>
+                            <td>{{ $agitator->info->YIK }}</td>
                             <td>
                                 <button type="button" class="btn btn-default" data-toggle="modal"
                                         data-target="#modalAgitator{{$agitator->id}}">

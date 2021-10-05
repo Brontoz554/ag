@@ -77,6 +77,7 @@
 
 <script src="{{ asset('js/app.js') }}" defer></script>
 <script src="{{ asset('js/candidate.js') }}" defer></script>
+<script src="{{ asset('js/maskinput.js') }}" defer></script>
 
 @yield('third_party_scripts')
 

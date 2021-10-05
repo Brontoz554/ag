@@ -43,8 +43,12 @@ class SupporterController extends Controller
             'referral_link' => 'required|min:35|exists:extra_info',
             'residence_address' => 'required|max:100',
             'INN' => 'required|max:100|unique:extra_info',
-            'passport_face_photo' => 'required|image|mimes:jpeg,png,jpg|max:200',
-            'passport_residence_address' => 'required|image|mimes:jpeg,png,jpg|max:200',
+            'passport_face_photo' => 'required|image|mimes:jpeg,png,jpg|max:500',
+            'passport_residence_address' => 'required|image|mimes:jpeg,png,jpg|max:500',
+            'country' => 'required',
+            'region' => 'required',
+            'TIK' => 'required',
+            'YIK' => 'required',
         ]);
 
         $user = new User([
@@ -57,15 +61,17 @@ class SupporterController extends Controller
         ]);
         $user->save();
 
-        $extraInfo = ExtraInfo::where('referral_link', '=', $request->referral_link)->first('user_id');
-        $agitator_id = $extraInfo->user_id;
+        $extraInfo = ExtraInfo::where('referral_link', '=', $request->referral_link)->first();
 
         $passportFacePhoto = $request->passport_face_photo->store('public');
         $passportResidenceAddress = $request->passport_residence_address->store('public');
 
         $agitator = new ExtraInfo([
             'user_id' => $user->id,
-            'agitator_id' => $agitator_id,
+            'agitator_id' => $extraInfo->user_id,
+            'YIK' => $extraInfo->YIK,
+            'TIK' => $extraInfo->TIK,
+            'region' => $extraInfo->region,
             'passport_series' => $request->passport_series,
             'passport_number' => $request->passport_number,
             'passport_date' => $request->passport_date,
@@ -76,6 +82,9 @@ class SupporterController extends Controller
         ]);
         $agitator->save();
 
+        if (Auth::user()) {
+            return Redirect::home();
+        }
         Auth::guard()->login($user);
         return Redirect::home();
     }

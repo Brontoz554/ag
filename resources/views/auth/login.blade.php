@@ -20,7 +20,7 @@
                 @csrf
                 <div class="input-group mb-3">
                     <input type="tel"
-                           name="phone"
+                           name="phone" id="phone"
                            value="{{ old('phone') }}"
                            placeholder="Phone"
                            class="form-control @error('phone') is-invalid @enderror">
